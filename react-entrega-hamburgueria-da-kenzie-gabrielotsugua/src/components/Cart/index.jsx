@@ -1,17 +1,19 @@
 import React from 'react'
 import "./index.css"
-import hamburguer from "../../assets/hamburguer.png"
 import { RemoveButton } from '../Buttons'
 
-const Cart = () => {
+
+const Cart = ({ product, i, removeFromCart }) => {
+  
   return (
     <div className='product'>
-      <img src={hamburguer} alt="" />
+      <img src={product.img} alt="" />
       <article>
-        <h5>Hamburguer</h5>
-        <p>Sanduíches</p>
+        <h5>{product.name}</h5>
+        <p><span>{product.category}</span></p>
+        <span className='price'>{product.price.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}</span>
       </article>
-      <RemoveButton>Remover</RemoveButton>
+      <RemoveButton className='removeButton' onClick={() => removeFromCart(i)}>Remover</RemoveButton>
     </div>
   )
 }

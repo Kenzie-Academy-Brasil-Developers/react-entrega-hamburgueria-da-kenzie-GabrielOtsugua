@@ -1,15 +1,14 @@
 import React from 'react'
-import { SearchButton } from '../Buttons'
 import "./index.css"
 
-const Header = () => {
+
+const Header = ({ search, setSearch }) => {
 
   return (
     <header>
       <h1>Burguer <span>Kenzie</span></h1>
       <div>
-        <input type="text" placeholder='Digitar pesquisa' />
-        <SearchButton>Pesquisar</SearchButton>
+        <input type="text" placeholder='Digitar pesquisa' value={search} onChange={(e) => setSearch(e.target.value)} />
       </div>
     </header>
   )
